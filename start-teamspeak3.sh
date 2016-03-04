@@ -1,30 +1,35 @@
 #!/bin/bash
-# initial work by aheil
 
-case $TS_VERSION in
-  LATEST)
-    export TS_VERSION=`wget -O - https://www.server-residenz.com/tools/ts3versions.json | jsawk -n 'out(this.latest)'`
-    ;;
+case `uname -m` in
+	"x86_64")
+	url_download=`wget -O - https://www.teamspeak.com/downloads | grep teamspeak3-server_linux_amd64 | grep 4players | sed -e 's/^.*"\(.*4players.*.tar.bz2\)".*$/\1/'`
+	;;
+	*)
+	url_download=`wget -O - https://www.teamspeak.com/downloads | grep teamspeak3-server_linux_x86 | grep 4players | sed -e 's/^.*"\(.*4players.*.tar.bz2\)".*$/\1/'`
+	;;
 esac
 
+tarfile=`echo $url_download | sed -e 's/.*\(teamspeak.*.tar.bz2\)/\1/'`
+
 cd /data
+rm /data/* -rf
 
-TARFILE=teamspeak3-server_linux-amd64-${TS_VERSION}.tar.gz
+wget -q $url_download 
 
-if [ ! -e ${TARFILE} ]; then
-  echo "Downloading ${TARFILE} ..."
-  wget -q http://dl.4players.de/ts/releases/${TS_VERSION}/${TARFILE} \
-  && tar -x -f ${TARFILE} --strip-components=1
-fi
+tar --strip-components=1 -xvjf $tarfile
+
+rm $tarfile
 
 export LD_LIBRARY_PATH=/data
 
-TS3ARGS=""
-if [ -e /data/ts3server.ini ]; then
+TS3ARGS="inifile=/config/ts3server.ini"
+if [ -e /config/ts3server.ini ]; then
   TS3ARGS="inifile=/config/ts3server.ini"
 else
-  TS3ARGS="createinifile=1"
+  TS3ARGS="createinifile=1 $TS3ARGS"
 fi
+
+echo $TS3ARGS
 
 exec ./ts3server $TS3ARGS
 
