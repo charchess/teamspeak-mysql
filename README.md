@@ -5,6 +5,15 @@ Iimprovements to do :
 * maping the /data/files 
 * extract the admin key in an easier way
 
+config file are in /config (ts3server.ini and other, you will have to point
+at this folder for the dbpluginparameter=/config/....)
+
+teamspeak files are in /data/files and can be maped to
+
+if no ts3server.ini exists, it will be created in /config/
+
+
+
 
 
 
