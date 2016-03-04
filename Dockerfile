@@ -14,6 +14,7 @@ RUN apt-get update \
     && chmod +x /usr/bin/jsawk \
     && useradd -M -s /bin/false --uid 1000 teamspeak3 \
     && mkdir /data \
+    && mkdir /config \
     && chown teamspeak3:teamspeak3 /data
 
 ADD start-teamspeak3.sh /start-teamspeak3
