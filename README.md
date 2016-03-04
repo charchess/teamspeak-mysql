@@ -12,6 +12,8 @@ teamspeak files are in /data/files and can be maped to
 
 if no ts3server.ini exists, it will be created in /config/
 
+I launch it with that line :
+docker run -d -p 9987:9987/udp -p 10011:10011 -p 30033:30033 -v /mnt/docker/teamspeak/files:/data/files -v /mnt/docker/teamspeak/config:/config --name=teamspeak --restart=always -t charchess/teamspeak-mysql
 
 
 
