@@ -12,7 +12,6 @@ esac
 tarfile=`echo $url_download | sed -e 's/.*\(teamspeak.*.tar.bz2\)/\1/'`
 
 cd /data
-rm /data/* -rf
 
 wget -q $url_download 
 
