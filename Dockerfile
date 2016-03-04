@@ -1,8 +1,10 @@
 FROM debian:jessie
 
-MAINTAINER aheil
+MAINTAINER charchess
+# based on/forked of aheil work
 
-#ENV DEBIAN_FRONTEND noninteractive
+
+ENV DEBIAN_FRONTEND noninteractive
 ENV TS_VERSION LATEST
 
 RUN apt-get update \
@@ -22,3 +24,4 @@ USER teamspeak3
 VOLUME /data
 WORKDIR /data
 CMD ["/start-teamspeak3"]
+

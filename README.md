@@ -1,7 +1,15 @@
 This is totally based on aheil/teamspeak work 
 
+Iimprovements to do :
+* create a mapable /config with the config files (not puting everything in /data ...)
+* maping the /data/files 
+* extract the admin key in an easier way
 
 
+
+
+
+original readme by aheil :
 docker-teamspeak3
 =================
 
