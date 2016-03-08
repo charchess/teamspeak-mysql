@@ -1,9 +1,12 @@
 This is totally based on aheil/teamspeak work 
 
-Iimprovements to do :
-* create a mapable /config with the config files (not puting everything in /data ...)
-* maping the /data/files 
+	Iimprovements to do :
+* (done) create a mapable /config with the config files (not puting everything in /data ...)
+* (done) maping the /data/files 
 * extract the admin key in an easier way
+* add logs in mapable repository
+* (maybe) generalize this in a switch oriented way
+
 
 config file are in /config (ts3server.ini and other, you will have to point
 at this folder for the dbpluginparameter=/config/....)
