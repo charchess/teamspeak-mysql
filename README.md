@@ -1,6 +1,6 @@
 This is totally based on aheil/teamspeak work 
 
-	Iimprovements to do :
+	Improvements to do :
 * (done) create a mapable /config with the config files (not puting everything in /data ...)
 * (done) maping the /data/files 
 * extract the admin key in an easier way
